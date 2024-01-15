@@ -16,6 +16,8 @@ if (sessionStorage.getItem("status") === 'admin') {
 
 
 btnExit?.addEventListener('click', () => {
+    sessionStorage.setItem("status", "");
+    sessionStorage.setItem("user", "");
     notAutentifikace();
 })
 
