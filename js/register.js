@@ -5,14 +5,19 @@ console.log(sessionStorage.getItem("status"))
 
 const form = document.querySelector(".registrationForm");
 const loginBlock = document.querySelector('.login');
+const btnExit = document.querySelector('.btn-exit');
+
 
 if (sessionStorage.getItem("status") === 'admin') {
-    loginBlock?.classList.remove('hidden');
-    form?.classList.add('hidden');
+    isAutentifikace();
 } else {
-    loginBlock?.classList.add('hidden');
-    form?.classList.remove('hidden');
+    notAutentifikace();
 }
+
+
+btnExit?.addEventListener('click', () => {
+    notAutentifikace();
+})
 
 function register() {
 
@@ -29,7 +34,7 @@ function register() {
     };
     console.log(data)
     // Відправка AJAX-запиту на сервер за допомогою fetch
-    fetch('./register.php', {
+    fetch('http://temperatura.smm.zzz.com.ua/register.php', {
         method: "POST", // *GET, POST, PUT, DELETE, etc.
         mode: "cors", // no-cors, *cors, same-origin
         cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
@@ -53,8 +58,8 @@ function register() {
                 if (result.status === "admin") {
                     sessionStorage.setItem("status", result.status);
                     sessionStorage.setItem("user", result.user);
-                    loginBlock?.classList.remove('hidden');
-                    form?.classList.add('hidden');
+                    isAutentifikace();
+
                 }
             } else {
                 alert("Помилка реєстрації: " + result.message);
@@ -63,4 +68,20 @@ function register() {
         .catch(error => {
             console.error('Помилка:', error);
         });
+}
+
+
+
+
+
+function isAutentifikace() {
+    loginBlock?.classList.remove('hidden');
+    form?.classList.add('hidden');
+    btnExit?.classList.remove('hidden');
+}
+
+function notAutentifikace() {
+    loginBlock?.classList.add('hidden');
+    form?.classList.remove('hidden');
+    btnExit?.classList.add('hidden');
 }
