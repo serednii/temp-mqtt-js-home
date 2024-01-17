@@ -57,7 +57,8 @@
     border: none;
 }
 
-.registrationForm {
+.registrationForm,
+.authorizationForm {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -65,7 +66,6 @@
     max-width: 350px;
     width: 100%;
     margin: 0 auto;
-   
 }
 
 .point {
