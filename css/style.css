@@ -50,10 +50,13 @@
     border: none;
 }
 
-.registrationForm {
+.registrationForm,
+.authorizationForm {
     max-width: 300px;
     width: 100%;
     margin: 0 auto;
+
+    margin-bottom: 50px;
 }
 
 .point {

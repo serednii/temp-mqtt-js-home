@@ -3,31 +3,16 @@
 console.log(document.cookie)
 console.log(sessionStorage.getItem("status"))
 
-const form = document.querySelector(".registrationForm");
-const loginBlock = document.querySelector('.login');
-const btnExit = document.querySelector('.btn-exit');
+// const form = document.querySelector(".registrationForm");
+// const loginBlock = document.querySelector('.login');
+// const btnExit = document.querySelector('.btn-exit');
 
-
-if (sessionStorage.getItem("status") === 'admin') {
-    isAutentifikace();
-} else {
-    notAutentifikace();
-}
-
-
-btnExit?.addEventListener('click', () => {
-    sessionStorage.setItem("status", "");
-    sessionStorage.setItem("user", "");
-    notAutentifikace();
-})
 
 function register() {
-
 
     // Отримання даних з форми
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
-
 
     // Створення об'єкту з даними
     var data = {
@@ -54,15 +39,7 @@ function register() {
             // Обробка відповіді від сервера
             console.log(result)
             if (result.success) {
-
-
-
-                if (result.status === "admin") {
-                    sessionStorage.setItem("status", result.status);
-                    sessionStorage.setItem("user", result.user);
-                    isAutentifikace();
-
-                }
+                alert(" Ви успішно зарегістровані: " + result.message);
             } else {
                 alert("Помилка реєстрації: " + result.message);
             }
@@ -76,14 +53,3 @@ function register() {
 
 
 
-function isAutentifikace() {
-    loginBlock?.classList.remove('hidden');
-    form?.classList.add('hidden');
-    btnExit?.classList.remove('hidden');
-}
-
-function notAutentifikace() {
-    loginBlock?.classList.add('hidden');
-    form?.classList.remove('hidden');
-    btnExit?.classList.add('hidden');
-}
