@@ -1,0 +1,33 @@
+a{
+  display: block;
+
+}
+
+.animation{
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  position: relative;
+  animation-name: example;
+  animation-duration: 4s;
+  animation-delay: 2s;
+  animation-iteration-count: 3;
+  animation-direction: alternate-reverse;
+}
+
+#div1 {animation-timing-function: ease;}
+
+@keyframes example{
+  0%  {background-color: red; left: 0; top: 0;}
+  25% {background-color: fuchsia; left: 200px; top: 0;}
+  50% {background-color: yellow; left: 200px; top: 200px;}
+  75% {background-color: blue; left: 0; top: 200px;}
+  100%{background-color: green; left: 0; top: 0;}
+
+}
+
+#map {
+  width: 3500px;
+  height: 1900px;
+  background-color: #8b8b8b;
+}

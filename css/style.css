@@ -23,20 +23,27 @@
 
 
 .wrapper {
-    width: 100%;
     background-color: #a6b5a0;
     padding: 15px 15px;
     display: grid;
-    justify-content: center;
+    justify-content: center; 
     grid-template-columns: repeat(3, 250px);
     gap: 10px;
 }
 
 
 .wrapper-form {
-    width: 100%;
-    background-color: #a6b5a0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 660px;
+    height: 400px;
+    background-image: url('./../gradient.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
     padding: 15px 15px;
+    border-radius: 22px;
 }
 
 .btn-exit {
@@ -51,22 +58,25 @@
 }
 
 .registrationForm {
-    max-width: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 350px;
     width: 100%;
     margin: 0 auto;
+   
 }
 
 .point {
-    background-color: #01ff9b;
+    background-color: #16329c69;
     margin-bottom: 10px;
-    padding: 12px 5px;
-    border-radius: 15px;
-    -webkit-border-radius: 15px;
-    -moz-border-radius: 15px;
-    -ms-border-radius: 15px;
-    -o-border-radius: 15px;
+    border-radius: 22px;
+    padding: 20px;
 
 }
+
+
 
 .subtitle {
     text-align: center;
@@ -109,7 +119,7 @@
 }
 
 .hidden {
-    display: none;
+    /* display: none; */
 }
 
 @media (max-width: 1100px) {
