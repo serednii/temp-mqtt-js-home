@@ -3,6 +3,7 @@
 // console.log(document.cookie)
 // console.log(sessionStorage.getItem("status"))
 
+const wrapperForm = document.querySelector(".wrapper-form");
 const registrationForm = document.querySelector(".registrationForm");
 const authorizationForm = document.querySelector(".authorizationForm");
 
@@ -77,14 +78,16 @@ function autentification() {
 
 function isAutentifikace() {
     loginBlock?.classList.remove('hidden');
-    registrationForm?.classList.add('hidden');
-    authorizationForm?.classList.add('hidden');
+    wrapperForm?.classList.add('hidden');
+    // registrationForm?.classList.add('hidden');
+    // authorizationForm?.classList.add('hidden');
     btnExit?.classList.remove('hidden');
 }
 
 function notAutentifikace() {
     loginBlock?.classList.add('hidden');
-    registrationForm?.classList.remove('hidden');
-    authorizationForm?.classList.remove('hidden');
+    wrapperForm?.classList.remove('hidden');
+    // registrationForm?.classList.remove('hidden');
+    // authorizationForm?.classList.remove('hidden');
     btnExit?.classList.add('hidden');
 }
