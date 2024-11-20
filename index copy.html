@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>MQTT</title>
+
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <div class="wrapper-form">
+      <input
+        type="radio"
+        id="authorization"
+        name="select_form"
+        value="huey"
+        checked
+      />
+      <label for="authorization">Авторизація</label>
+
+      <input
+        type="radio"
+        id="autentification"
+        name="select_form"
+        value="dewey"
+      />
+      <label for="autentification">Регистрация</label>
+
+      <form class="point registrationForm hidden">
+        <p>Регистрация</p>
+        <label for="username">Ім'я користувача:</label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          autocomplete="username"
+          required
+        />
+        <label for="password">Пароль:</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          autocomplete="current-password"
+          required
+        />
+        <button class="btn-register" type="button">Зареєструватися</button>
+      </form>
+
+      <form class="point authorizationForm">
+        <p>Авторизація</p>
+        <label for="login_username">Ім'я користувача:</label>
+        <input
+          type="text"
+          id="login_username"
+          name="login_username"
+          autocomplete="username"
+          required
+        />
+        <label for="login_password">Пароль:</label>
+        <input
+          type="password"
+          id="login_password"
+          name="login_password"
+          autocomplete="current-password"
+          required
+        />
+        <button class="btn-authorization" type="button">Авторизуватися</button>
+      </form>
+    </div>
+    <div class="login hidden">
+      <h1 class="title">Датчики температур</h1>
+      <button class="btn-exit" aria-label="exit">
+        <svg
+          stroke="currentColor"
+          fill="currentColor"
+          stroke-width="0"
+          viewBox="0 0 512 512"
+          height="30px"
+          width="30px"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M217 28.098v455.804l142-42.597V70.697zm159.938 26.88l.062 2.327V87h16V55zM119 
+                        55v117.27h18V73h62V55zm258 50v16h16v-16zm0 34v236h16V139zm-240 58.727V233H41v46h96v35.273L195.273 
+                        256zM244 232c6.627 0 12 10.745 12 24s-5.373 24-12 24-12-10.745-12-24 5.373-24 12-24zM137 
+                        339.73h-18V448h18zM377 393v14h16v-14zm0 32v23h16v-23zM32 471v18h167v-18zm290.652 0l-60 18H480v-18z"
+          ></path>
+        </svg>
+      </button>
+
+      <div class="wrapper">
+        <a href="/index.html">E-MENTOR</a>
+      </div>
+      <div class="wrapper">
+        <section class="point room-bedroom">
+          <h2 class="subtitle">Прийомна</h2>
+          <ul class="list">
+            <li class="item">
+              <p class="name-topic">Прийомна кімната 1</p>
+              <span
+                class="data-topic"
+                data-topic="spalna_and_prijomna28ff6402e3b5a030"
+              ></span>
+              <span class="data-last__time"></span>
+            </li>
+            <li class="item">
+              <p class="name-topic">прийомна Батарея вхід 2</p>
+              <span
+                class="data-topic"
+                data-topic="spalna_and_prijomna28ff6402e3c3d268"
+              ></span>
+              <span class="data-last__time"></span>
+            </li>
+            <li class="item">
+              <p class="name-topic">Прийомна бат вхід 3</p>
+              <span
+                class="data-topic"
+                data-topic="spalna_and_prijomna28ff6402ef7b2b4f"
+              ></span>
+              <span class="data-last__time"></span>
+            </li>
+          </ul>
+        </section>
+
+        <section class="point room-bedroom">
+          <h2 class="subtitle">Спальня</h2>
+          <ul class="list">
+            <li class="item">
+              <p class="name-topic">Спальня Батарея вхід 4</p>
+              <span
+                class="data-topic"
+                data-topic="spalna_and_prijomna28ff6402ef601521"
+              ></span>
+              <span class="data-last__time"></span>
+            </li>
+
+            <li class="item">
+              <p class="name-topic">Спальня Батарея вихід 5</p>
+              <span
+                class="data-topic"
+                data-topic="spalna_and_prijomna28ff640219bc37f7"
+              ></span>
+              <span class="data-last__time"></span>
+            </li>
+            <li class="item">
+              <p class="name-topic">Спальня кімната 6</p>
+              <span
+                class="data-topic"
+                data-topic="spalna_and_prijomna28ff6402e3db3598"
+              ></span>
+              <span class="data-last__time"></span>
+            </li>
+          </ul>
+        </section>
+
+        <section class="point room-bedroom">
+          <h2 class="subtitle">Львів Ірина</h2>
+          <ul class="list">
+            <li class="item">
+              <p class="name-topic">Кімната</p>
+              <span class="data-topic" data-topic="spalna/temp0"></span>
+              <span class="data-last__time"></span>
+            </li>
+            <li class="item">
+              <p class="name-topic">Батарея вхід</p>
+              <span class="data-topic" data-topic="spalna/temp1"></span>
+              <span class="data-last__time"></span>
+            </li>
+            <li class="item">
+              <p class="name-topic">Батарея вихід</p>
+              <span class="data-topic" data-topic="spalna/temp2"></span>
+              <span class="data-last__time"></span>
+            </li>
+          </ul>
+        </section>
+
+        <section class="point room-kitchen">
+          <h2 class="subtitle">Кухня</h2>
+          <ul class="list">
+            <li class="item">
+              <p class="name-topic">Газова колонка</p>
+              <span class="data-topic" data-topic="kuxna/temp2"></span>
+              <span class="data-last__time"></span>
+            </li>
+            <li class="item">
+              <p class="name-topic">Температура на вулиці</p>
+              <span class="data-topic" data-topic="kuxna/temp0"></span>
+              <span class="data-last__time"></span>
+            </li>
+            <li class="item">
+              <p class="name-topic">Батарея вихід</p>
+              <span class="data-topic" data-topic="kuxna/temp1"></span>
+              <span class="data-last__time"></span>
+            </li>
+          </ul>
+        </section>
+
+        <section class="point room-boiler">
+          <h2 class="subtitle">Котел газовий</h2>
+
+          <ul class="list">
+            <li class="item">
+              <p class="name-topic">Котел вхід</p>
+              <span class="data-topic" data-topic="kotelservo-0/temp0"></span>
+              <span class="data-last__time"></span>
+            </li>
+            <li class="item">
+              <p class="name-topic">Котел вихід</p>
+              <span class="data-topic" data-topic="kotelservo-0/temp1"></span>
+              <span class="data-last__time"></span>
+            </li>
+            <li class="item">
+              <p class="name-topic">Підтвердження прийому</p>
+              <span class="data-topic" data-topic="kotel-servo-1/stled"></span>
+              <span class="data-last__time"></span>
+            </li>
+            <li class="item">
+              <p class="name-topic">Дійсне положення серво</p>
+              <span class="data-topic" data-topic="kotelservo-1/degres"></span>
+              <span class="data-last__time"></span>
+            </li>
+            <li>
+              <form class="kotel-form">
+                <input
+                  class="input kotel-form__number"
+                  type="text"
+                  name="setdegr"
+                />
+                <button class="button kotel-form__send">Відправити</button>
+              </form>
+            </li>
+          </ul>
+        </section>
+
+        <section class="point room-nasta">
+          <h2 class="subtitle">Настя кімната</h2>
+          <ul class="list">
+            <li class="item">
+              <p class="name-topic">Батарея вхід</p>
+              <span class="data-topic" data-topic="nasta/temp0"></span>
+              <span class="data-last__time"></span>
+            </li>
+            <li class="item">
+              <p class="name-topic">Батарея вихід</p>
+              <span class="data-topic" data-topic="nasta/temp1"></span>
+              <span class="data-last__time"></span>
+            </li>
+            <li class="item">
+              <p class="name-topic">Кімната</p>
+              <span class="data-topic" data-topic="nasta/temp2"></span>
+              <span class="data-last__time"></span>
+            </li>
+          </ul>
+        </section>
+
+        <section class="point room-bath">
+          <h2 class="subtitle">Насос</h2>
+          <ul class="list">
+            <li class="item">
+              <p class="name-topic">Насос приміщення</p>
+              <span class="data-topic" data-topic="pompa/temp0"></span>
+              <span class="data-last__time"></span>
+            </li>
+            <li class="item">
+              <p class="name-topic">Насос труба</p>
+              <span class="data-topic" data-topic="pompa/temp1"></span>
+              <span class="data-last__time"></span>
+            </li>
+            <li class="item">
+              <p class="name-topic">Насос кімната</p>
+              <span class="data-topic" data-topic="pompa/temp2"></span>
+              <span class="data-last__time"></span>
+            </li>
+          </ul>
+        </section>
+
+        <section class="point expansion--tank">
+          <h2 class="subtitle">Розширювальний бак</h2>
+          <ul class="list">
+            <li class="item">
+              <p class="name-topic">Бак</p>
+              <span class="data-topic" data-topic="bak/temp0"></span>
+              <span class="data-last__time"></span>
+            </li>
+            <li class="item">
+              <p class="name-topic">Бак</p>
+              <span class="data-topic" data-topic="bak/temp1"></span>
+              <span class="data-last__time"></span>
+            </li>
+            <li class="item">
+              <p class="name-topic">Труба</p>
+              <span class="data-topic" data-topic="bak/temp2"></span>
+              <span class="data-last__time"></span>
+            </li>
+            <li class="item">
+              <p class="name-topic">Труба</p>
+              <span class="data-topic" data-topic="bak/temp3"></span>
+              <span class="data-last__time"></span>
+            </li>
+            <li class="item">
+              <p class="name-topic">Стан реле</p>
+              <span class="data-topic" data-topic="bak/rele"></span>
+              <span class="data-last__time"></span>
+            </li>
+            <li class="item">
+              <p class="name-topic">Стан реле</p>
+              <span class="data-topic" data-topic="bak/flag_rele"></span>
+              <span class="data-last__time"></span>
+            </li>
+            <li>
+              <form class="kotel-form">
+                <p class="kotel-form__comment">on 25634855</p>
+                <p class="kotel-form__comment">off 48962953</p>
+                <input class="input tank__input" type="text" name="setdegr" />
+                <button class="button tank__send">Відправити</button>
+              </form>
+            </li>
+            li>
+          </ul>
+        </section>
+      </div>
+    </div>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.js"
+      type="text/javascript"
+    ></script>
+
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>
