@@ -1,7 +1,7 @@
 const monitor = document.querySelectorAll('.data-topic');
 // const client = new Paho.MQTT.Client("broker.hivemq.com", 8000, "clientId-" + parseInt(Math.random() * 100, 10));
 // const client = new Paho.MQTT.Client("broker.hivemq.com", 8000, "clientId-" + Math.random().toString(16).substr(2, 8));
-const client = new Paho.MQTT.Client("iot.eclipse.org", Number(80), "/wss", "clientId")
+const client = new Paho.MQTT.Client("iot.eclipse.org", Number(443), "/ws", "clientId")
 // set callback handlers
 client.onConnectionLost = onConnectionLost;
 client.onMessageArrived = onMessageArrived;
